@@ -10,7 +10,7 @@ ActFreqMask 将相邻动作块之间的预测建模为频谱转移：通过 mask
 
 ### 1. 每个 T=8 动作块的 DCT 频谱
 
-![12 个连续动作块的 DCT 幅值谱](assets/figures/ref_npz_chunk_per_chunk_spectrum.png)
+![12 个连续动作块的 DCT 幅值谱](image/频谱差别.png)
 
 此图来自参考 NPZ 中的动作数组，共 96 步、7 个通道。以 **chunk size = 8、stride = 8** 划分为 12 个连续、不重叠的块，每个通道沿块内时间轴独立进行 DCT。
 
@@ -25,7 +25,7 @@ ActFreqMask 将相邻动作块之间的预测建模为频谱转移：通过 mask
 
 ### 2. Franka 动作序列的复数 FFT 分解
 
-![Franka demo_0 的时域动作及 FFT 分量](assets/figures/franka_task1_filter_demo0_complex_fft_components.png)
+![Franka demo_0 的时域动作及 FFT 分量](image/时域图.png)
 
 此图展示 `demo_0` 的 95 步动作序列，选取 `dx、dy、dz、gripper` 四个通道。根据配套保存数组核对，频谱由 **Hann 窗加权、未去均值、正交归一化的实输入 FFT（rFFT）** 得到。第一列显示加窗前的动作，后四列显示加窗后序列的频谱。
 
